@@ -9,6 +9,7 @@ Class=App;app-appearance/App.xojo_code;&h0000000054400FFF;&h00000000662BCFFF;fal
 BuildSteps=Build Automation;Build Automation.xojo_code;&h0000000056236FFF;&h0000000000000000;false
 Folder=resources;resources;&h000000004D8CD7FF;&h0000000000000000;false
 MultiImage=PayPal;resources/PayPal.xojo_image;&h000000000FAFBFFF;&h000000004D8CD7FF;false
+MultiImage=AppIcon_64;resources/AppIcon_64.xojo_image;&h0000000028A7DFFF;&h000000004D8CD7FF;false
 AppMenuBar=MainMenuBar
 MajorVersion=1
 MinorVersion=0
