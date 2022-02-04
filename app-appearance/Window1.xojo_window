@@ -528,6 +528,13 @@ End
 
 #tag WindowCode
 	#tag Event
+		Sub Open()
+		  Self.Title = "App Appearance -  v" + Str(App.MajorVersion) + "." + Str(App.MinorVersion) + "." + Str(App.BugVersion)
+		  
+		End Sub
+	#tag EndEvent
+
+	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
 		  timAppearanceRefresh.Mode = Timer.ModeSingle
 		End Sub
