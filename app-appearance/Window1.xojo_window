@@ -484,7 +484,7 @@ Begin Window Window1
       Index           =   -2147483648
       LockedInPosition=   True
       Mode            =   0
-      Period          =   100
+      Period          =   10
       Scope           =   2
       TabPanelIndex   =   0
    End
@@ -552,7 +552,7 @@ End
 		  Case MacOS_AppAppearance.Dark
 		    sStatus = "Always Dark"
 		  Else
-		    sStatus = "Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		    sStatus = "System Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
 		  End Select
 		  
 		  If (labAppearanceCurrent.Text <> sStatus) Then
