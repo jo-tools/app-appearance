@@ -185,6 +185,8 @@ Protected Module modAppAppearance
 		    'Windows: D2D Software-Rendering
 		    Dim bDarkModeDisabled As Boolean = (Not pbOptIn)
 		    System.EnvironmentVariable("XOJO_WIN32_DARKMODE_DISABLED") = Str(bDarkModeDisabled)
+		  #Else
+		    #Pragma unused pbOptIn
 		  #EndIf
 		End Sub
 	#tag EndMethod

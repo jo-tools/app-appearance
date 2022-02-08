@@ -5,11 +5,33 @@ Inherits Application
 		Sub Open()
 		  Me.AutoQuit = True
 		  
+		  #If TargetWindows Then
+		    IsWindowsDarkModeOptIn = False
+		    If IsDarkModeSupported Then
+		      Dim n As Integer = MsgBox( _
+		      "DarkMode: Do you want to Opt-in?" + EndOfLine + EndOfLine + _
+		      "In a real application, you would store that choice as a user preference and read the value in App.Open.", _
+		      36)
+		      If n = 6 Then
+		        // user pressed Yes
+		        IsWindowsDarkModeOptIn = True
+		      Elseif n = 7 Then
+		        // user pressed No
+		        IsWindowsDarkModeOptIn = False
+		      End If
+		    End If
+		    Windows_DarkMode_OptIn = IsWindowsDarkModeOptIn
+		  #EndIf
+		  
 		  w = New Window1
 		  w.Show
 		End Sub
 	#tag EndEvent
 
+
+	#tag Property, Flags = &h0
+		IsWindowsDarkModeOptIn As Boolean = false
+	#tag EndProperty
 
 	#tag Property, Flags = &h21
 		Private w As Window

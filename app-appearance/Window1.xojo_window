@@ -9,20 +9,20 @@ Begin Window Window1
    FullScreen      =   False
    FullScreenButton=   False
    HasBackColor    =   False
-   Height          =   300
+   Height          =   280
    ImplicitInstance=   False
    LiveResize      =   True
    MacProcID       =   0
    MaxHeight       =   32000
-   MaximizeButton  =   True
+   MaximizeButton  =   False
    MaxWidth        =   32000
    MenuBar         =   775346175
    MenuBarVisible  =   True
-   MinHeight       =   300
+   MinHeight       =   280
    MinimizeButton  =   True
    MinWidth        =   600
    Placement       =   0
-   Resizeable      =   True
+   Resizeable      =   False
    Title           =   "App Appearance"
    Visible         =   True
    Width           =   600
@@ -39,7 +39,7 @@ Begin Window Window1
       Italic          =   False
       Left            =   20
       LockBottom      =   False
-      LockedInPosition=   True
+      LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -55,7 +55,7 @@ Begin Window Window1
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   119
+      Top             =   115
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -74,7 +74,7 @@ Begin Window Window1
       Italic          =   False
       Left            =   180
       LockBottom      =   False
-      LockedInPosition=   True
+      LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
@@ -90,107 +90,11 @@ Begin Window Window1
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   119
+      Top             =   115
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   400
-   End
-   Begin PushButton btnAppearanceLight
-      AutoDeactivate  =   True
-      Bold            =   False
-      ButtonStyle     =   "0"
-      Cancel          =   False
-      Caption         =   "Always Light"
-      Default         =   False
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   180
-      LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   2
-      TabIndex        =   11
-      TabPanelIndex   =   0
-      TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   183
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   240
-   End
-   Begin PushButton btnAppearanceDark
-      AutoDeactivate  =   True
-      Bold            =   False
-      ButtonStyle     =   "0"
-      Cancel          =   False
-      Caption         =   "Always Dark"
-      Default         =   False
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   180
-      LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   2
-      TabIndex        =   12
-      TabPanelIndex   =   0
-      TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   215
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   240
-   End
-   Begin PushButton btnAppearanceDefault
-      AutoDeactivate  =   True
-      Bold            =   False
-      ButtonStyle     =   "0"
-      Cancel          =   False
-      Caption         =   "System Default"
-      Default         =   False
-      Enabled         =   True
-      Height          =   20
-      HelpTag         =   ""
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   180
-      LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      Scope           =   2
-      TabIndex        =   13
-      TabPanelIndex   =   0
-      TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
-      Top             =   247
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   240
    End
    Begin Canvas cnvAppIcon
       AcceptFocus     =   False
@@ -423,7 +327,7 @@ Begin Window Window1
       Italic          =   False
       Left            =   20
       LockBottom      =   False
-      LockedInPosition=   True
+      LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -439,7 +343,7 @@ Begin Window Window1
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   151
+      Top             =   145
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -458,7 +362,7 @@ Begin Window Window1
       Italic          =   False
       Left            =   180
       LockBottom      =   False
-      LockedInPosition=   True
+      LockedInPosition=   False
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
@@ -474,7 +378,7 @@ Begin Window Window1
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   151
+      Top             =   145
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -487,6 +391,102 @@ Begin Window Window1
       Period          =   10
       Scope           =   2
       TabPanelIndex   =   0
+   End
+   Begin PushButton btnAppearanceLight
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Always Light"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   180
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   2
+      TabIndex        =   12
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   175
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   240
+   End
+   Begin PushButton btnAppearanceDark
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "Always Dark"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   180
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   2
+      TabIndex        =   13
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   207
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   240
+   End
+   Begin PushButton btnAppearanceDefault
+      AutoDeactivate  =   True
+      Bold            =   False
+      ButtonStyle     =   "0"
+      Cancel          =   False
+      Caption         =   "System Default"
+      Default         =   False
+      Enabled         =   True
+      Height          =   20
+      HelpTag         =   ""
+      Index           =   -2147483648
+      InitialParent   =   ""
+      Italic          =   False
+      Left            =   180
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      Scope           =   2
+      TabIndex        =   14
+      TabPanelIndex   =   0
+      TabStop         =   True
+      TextFont        =   "System"
+      TextSize        =   0.0
+      TextUnit        =   0
+      Top             =   239
+      Transparent     =   False
+      Underline       =   False
+      Visible         =   True
+      Width           =   240
    End
    Begin Label labChangeTitle
       AutoDeactivate  =   True
@@ -508,7 +508,7 @@ Begin Window Window1
       Multiline       =   False
       Scope           =   2
       Selectable      =   False
-      TabIndex        =   14
+      TabIndex        =   11
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Change to:"
@@ -517,7 +517,7 @@ Begin Window Window1
       TextFont        =   "System"
       TextSize        =   0.0
       TextUnit        =   0
-      Top             =   183
+      Top             =   175
       Transparent     =   False
       Underline       =   False
       Visible         =   True
@@ -531,11 +531,23 @@ End
 		Sub Open()
 		  Self.Title = "App Appearance -  v" + Str(App.MajorVersion) + "." + Str(App.MinorVersion) + "." + Str(App.BugVersion)
 		  
+		  #If (Not TargetMacOS) Then
+		    labChangeTitle.Visible = False
+		    btnAppearanceDark.Visible = False
+		    btnAppearanceDefault.Visible = False
+		    btnAppearanceLight.Visible = False
+		    
+		    Self.MinHeight = labChangeTitle.Top + 10
+		    Self.Height = Self.MinHeight
+		  #EndIf
 		End Sub
 	#tag EndEvent
 
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  #Pragma unused areas
+		  #Pragma unused g
+		  
 		  timAppearanceRefresh.Mode = Timer.ModeSingle
 		End Sub
 	#tag EndEvent
@@ -543,17 +555,33 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub RefreshAppearanceCurrent()
-		  Dim currentAppearance As MacOS_AppAppearance = macOSAppAppearance
-		  
 		  Dim sStatus As String
-		  Select Case currentAppearance
-		  Case MacOS_AppAppearance.Aqua
-		    sStatus = "Always Light"
-		  Case MacOS_AppAppearance.Dark
-		    sStatus = "Always Dark"
-		  Else
-		    sStatus = "System Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
-		  End Select
+		  
+		  #If TargetWindows Then
+		    
+		    If IsDarkModeSupported And App.IsWindowsDarkModeOptIn Then
+		      sStatus = "System Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		    Else
+		      sStatus = "Xojo Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		    End If
+		    
+		  #ElseIf TargetMacOS Then
+		    
+		    Dim currentAppearance As MacOS_AppAppearance = macOSAppAppearance
+		    Select Case currentAppearance
+		    Case MacOS_AppAppearance.Aqua
+		      sStatus = "Always Light"
+		    Case MacOS_AppAppearance.Dark
+		      sStatus = "Always Dark"
+		    Else
+		      sStatus = "System Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		    End Select
+		    
+		  #Else
+		    
+		    sStatus = "Xojo Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		    
+		  #EndIf
 		  
 		  If (labAppearanceCurrent.Text <> sStatus) Then
 		    labAppearanceCurrent.Text = sStatus
@@ -567,7 +595,14 @@ End
 #tag Events labAvailability
 	#tag Event
 		Sub Open()
-		  If macOSAppAppearanceAvailable Then
+		  Dim bAvailable As Boolean = False
+		  #If TargetMacOS Then
+		    bAvailable = macOSAppAppearanceAvailable
+		  #ElseIf TargetWindows Then
+		    bAvailable = IsDarkModeSupported
+		  #EndIf
+		  
+		  If bAvailable Then
 		    Me.Text = "available"
 		    Me.TextColor = &c3F7F02
 		  Else
@@ -577,33 +612,11 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
-#tag Events btnAppearanceLight
-	#tag Event
-		Sub Action()
-		  macOSAppAppearance = MacOS_AppAppearance.Aqua
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnAppearanceDark
-	#tag Event
-		Sub Action()
-		  macOSAppAppearance = MacOS_AppAppearance.Dark
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events btnAppearanceDefault
-	#tag Event
-		Sub Action()
-		  macOSAppAppearance = MacOS_AppAppearance.Default
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
-		End Sub
-	#tag EndEvent
-#tag EndEvents
 #tag Events cnvAppIcon
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  #Pragma unused areas
+		  
 		  g.DrawPicture(AppIcon_64, 0, 0)
 		End Sub
 	#tag EndEvent
@@ -616,6 +629,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  #Pragma unused X
+		  #Pragma unused Y
+		  
 		  Return True
 		End Function
 	#tag EndEvent
@@ -648,6 +664,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  #Pragma unused X
+		  #Pragma unused Y
+		  
 		  Return True
 		End Function
 	#tag EndEvent
@@ -678,6 +697,8 @@ End
 #tag Events cnvPayPal
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  #Pragma unused areas
+		  
 		  g.ForeColor = &cFFFFFF
 		  #If (XojoVersion >= 2018.03) Then
 		    If IsDarkMode Then g.ForeColor = &cD0D0D0
@@ -708,6 +729,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  #Pragma unused X
+		  #Pragma unused Y
+		  
 		  Return True
 		End Function
 	#tag EndEvent
@@ -726,6 +750,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  #Pragma unused X
+		  #Pragma unused Y
+		  
 		  Return True
 		End Function
 	#tag EndEvent
@@ -744,42 +771,31 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
+#tag Events btnAppearanceLight
+	#tag Event
+		Sub Action()
+		  macOSAppAppearance = MacOS_AppAppearance.Aqua
+		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnAppearanceDark
+	#tag Event
+		Sub Action()
+		  macOSAppAppearance = MacOS_AppAppearance.Dark
+		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events btnAppearanceDefault
+	#tag Event
+		Sub Action()
+		  macOSAppAppearance = MacOS_AppAppearance.Default
+		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
-	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Interfaces"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Super"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Width"
-		Visible=true
-		Group="Size"
-		InitialValue="600"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Size"
-		InitialValue="400"
-		Type="Integer"
-	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MinWidth"
 		Visible=true
@@ -830,22 +846,7 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Title"
-		Visible=true
-		Group="Frame"
-		InitialValue="Untitled"
-		Type="String"
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="CloseButton"
-		Visible=true
-		Group="Frame"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Resizeable"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
@@ -877,6 +878,92 @@ End
 		EditorType="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="Placement"
+		Visible=true
+		Group="Behavior"
+		InitialValue="0"
+		Type="Integer"
+		EditorType="Enum"
+		#tag EnumValues
+			"0 - Default"
+			"1 - Parent Window"
+			"2 - Main Screen"
+			"3 - Parent Window Screen"
+			"4 - Stagger"
+		#tag EndEnumValues
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="LiveResize"
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="HasBackColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="Color"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Super"
+		Visible=true
+		Group="ID"
+		Type="String"
+		EditorType="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Width"
+		Visible=true
+		Group="Size"
+		InitialValue="600"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Size"
+		InitialValue="400"
+		Type="Integer"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Title"
+		Visible=true
+		Group="Frame"
+		InitialValue="Untitled"
+		Type="String"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Resizeable"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType="Boolean"
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Composite"
 		Group="OS X (Carbon)"
 		InitialValue="False"
@@ -897,30 +984,8 @@ End
 		EditorType="Boolean"
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Placement"
-		Visible=true
-		Group="Behavior"
-		InitialValue="0"
-		Type="Integer"
-		EditorType="Enum"
-		#tag EnumValues
-			"0 - Default"
-			"1 - Parent Window"
-			"2 - Main Screen"
-			"3 - Parent Window Screen"
-			"4 - Stagger"
-		#tag EndEnumValues
-	#tag EndViewProperty
-	#tag ViewProperty
 		Name="Visible"
 		Visible=true
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
@@ -932,20 +997,6 @@ End
 		InitialValue="False"
 		Type="Boolean"
 		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Background"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="BackColor"
-		Visible=true
-		Group="Background"
-		InitialValue="&hFFFFFF"
-		Type="Color"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
