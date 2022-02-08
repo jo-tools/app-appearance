@@ -385,6 +385,7 @@ Begin Window Window1
       Width           =   400
    End
    Begin Timer timAppearanceRefresh
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   True
       Mode            =   0
@@ -557,12 +558,19 @@ End
 		Private Sub RefreshAppearanceCurrent()
 		  Dim sStatus As String
 		  
+		  Dim sCurrentlyLightOrDark As String = " (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		  
 		  #If TargetWindows Then
 		    
+		    Dim sOptIn As String = ""
+		    If IsDarkModeSupported Then
+		      sOptIn = " [DarkMode OptIn: " + If(App.IsWindowsDarkModeOptIn, "yes", "no") + "]"
+		    End If
+		    
 		    If IsDarkModeSupported And App.IsWindowsDarkModeOptIn Then
-		      sStatus = "System Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		      sStatus = "System Default" + sCurrentlyLightOrDark + sOptIn
 		    Else
-		      sStatus = "Xojo Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		      sStatus = "Xojo Default" + sCurrentlyLightOrDark + sOptIn
 		    End If
 		    
 		  #ElseIf TargetMacOS Then
@@ -574,12 +582,12 @@ End
 		    Case MacOS_AppAppearance.Dark
 		      sStatus = "Always Dark"
 		    Else
-		      sStatus = "System Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		      sStatus = "System Default" + sCurrentlyLightOrDark
 		    End Select
 		    
 		  #Else
 		    
-		    sStatus = "Xojo Default (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		    sStatus = "Xojo Default" + sCurrentlyLightOrDark
 		    
 		  #EndIf
 		  
