@@ -385,7 +385,6 @@ Begin Window Window1
       Width           =   400
    End
    Begin Timer timAppearanceRefresh
-      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   True
       Mode            =   0
@@ -575,11 +574,11 @@ End
 		    
 		  #ElseIf TargetMacOS Then
 		    
-		    Dim currentAppearance As MacOS_AppAppearance = macOSAppAppearance
+		    Dim currentAppearance As NSAppearanceType = macOSAppAppearance
 		    Select Case currentAppearance
-		    Case MacOS_AppAppearance.Aqua
+		    Case NSAppearanceType.Light
 		      sStatus = "Always Light"
-		    Case MacOS_AppAppearance.Dark
+		    Case NSAppearanceType.Dark
 		      sStatus = "Always Dark"
 		    Else
 		      sStatus = "System Default" + sCurrentlyLightOrDark
@@ -782,7 +781,7 @@ End
 #tag Events btnAppearanceLight
 	#tag Event
 		Sub Action()
-		  macOSAppAppearance = MacOS_AppAppearance.Aqua
+		  macOSAppAppearance = NSAppearanceType.Light
 		  timAppearanceRefresh.Mode = Timer.ModeSingle
 		End Sub
 	#tag EndEvent
@@ -790,7 +789,7 @@ End
 #tag Events btnAppearanceDark
 	#tag Event
 		Sub Action()
-		  macOSAppAppearance = MacOS_AppAppearance.Dark
+		  macOSAppAppearance = NSAppearanceType.Dark
 		  timAppearanceRefresh.Mode = Timer.ModeSingle
 		End Sub
 	#tag EndEvent
@@ -798,7 +797,7 @@ End
 #tag Events btnAppearanceDefault
 	#tag Event
 		Sub Action()
-		  macOSAppAppearance = MacOS_AppAppearance.Default
+		  macOSAppAppearance = NSAppearanceType.Default
 		  timAppearanceRefresh.Mode = Timer.ModeSingle
 		End Sub
 	#tag EndEvent

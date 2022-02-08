@@ -102,9 +102,9 @@ Protected Module modAppAppearance
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
-		Function macOSAppAppearance() As MacOS_AppAppearance
+		Function macOSAppAppearance() As NSAppearanceType
 		  #If TargetMacOS Then
-		    If (Not IsDarkModeSupported) Then Return MacOS_AppAppearance.Default
+		    If (Not IsDarkModeSupported) Then Return NSAppearanceType.Default
 		    
 		    Declare Function NSClassFromString Lib "Cocoa" (sClassName As CFStringRef) As Ptr
 		    Declare Function NSSelectorFromString Lib "Cocoa" (sSelector As CFStringRef) As Ptr
@@ -120,16 +120,16 @@ Protected Module modAppAppearance
 		      
 		      Dim ptrAppearance As Ptr = getAppearance(ptrSharedApp)
 		      
-		      if (ptrAppearance = NSAppearanceNamed(NSClassFromString("NSAppearance"), "NSAppearanceNameAqua")) then return MacOS_AppAppearance.Aqua
-		      if (ptrAppearance = NSAppearanceNamed(NSClassFromString("NSAppearance"), "NSAppearanceNameDarkAqua")) then return MacOS_AppAppearance.Dark
-		      return MacOS_AppAppearance.Default
+		      if (ptrAppearance = NSAppearanceNamed(NSClassFromString("NSAppearance"), "NSAppearanceNameAqua")) then return NSAppearanceType.Light
+		      if (ptrAppearance = NSAppearanceNamed(NSClassFromString("NSAppearance"), "NSAppearanceNameDarkAqua")) then return NSAppearanceType.Dark
+		      return NSAppearanceType.Default
 		    End If
 		  #EndIf
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
-		Sub macOSAppAppearance(Assigns appearance As MacOS_AppAppearance)
+		Sub macOSAppAppearance(Assigns appearance As NSAppearanceType)
 		  #If TargetMacOS Then
 		    If (Not IsDarkModeSupported) Then Return
 		    
@@ -146,9 +146,9 @@ Protected Module modAppAppearance
 		      Soft Declare Function NSAppearanceNamed Lib "AppKit" Selector "appearanceNamed:" (ptrNSAppearanceClass As Ptr, sAppearanceName As CFStringRef) As Ptr
 		      
 		      Select Case appearance
-		      Case MacOS_AppAppearance.Aqua
+		      Case NSAppearanceType.Light
 		        setAppearance(ptrSharedApp, NSAppearanceNamed(NSClassFromString("NSAppearance"), "NSAppearanceNameAqua"))
-		      Case MacOS_AppAppearance.Dark
+		      Case NSAppearanceType.Dark
 		        setAppearance(ptrSharedApp, NSAppearanceNamed(NSClassFromString("NSAppearance"), "NSAppearanceNameDarkAqua"))
 		      Else
 		        setAppearance(sharedApplication(NSClassFromString("NSApplication")), nil)
@@ -192,9 +192,9 @@ Protected Module modAppAppearance
 	#tag EndMethod
 
 
-	#tag Enum, Name = MacOS_AppAppearance, Flags = &h0
+	#tag Enum, Name = NSAppearanceType, Flags = &h0
 		Default=0
-		  Aqua=1
+		  Light=1
 		Dark=2
 	#tag EndEnum
 
