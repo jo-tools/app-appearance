@@ -42,8 +42,8 @@ The Desktop application Xojo example project ```AppAppearance.xojo_project``` is
 ### How to use in your own Xojo project?
 1. Copy the Module ```modAppAppearance``` from the example project, and paste it into your project.
 2. Study the example project to learn how to use the provided methods in the Module.
-   - Windows: The Opt-In happens in ```App.Open```: ```Windows_DarkMode_OptIn = true/false```
-   - macOS: You can switch the appearance any time. See actions in the corresponding ```PushButtons```, e.g.: ```macOSAppAppearance = NSAppearanceType.Light```
+   - Windows: The Opt-In happens in ```App.Open```: ```Windows_DarkMode_OptIn = true|false```
+   - macOS: You can switch the appearance any time. See actions in the corresponding ```PushButtons```, e.g.: ```macOSAppAppearance = NSAppearanceType.Light|Dark|Default```
 
 ## About
 Juerg Otter is a long term user of Xojo and working for [CM Informatik AG](https://cmiag.ch/). Their Application [CMI LehrerOffice](https://cmi-bildung.ch/) is a Xojo Design Award Winner 2018. In his leisure time Juerg provides some [bits and pieces for Xojo Developers](https://www.jo-tools.ch/).
