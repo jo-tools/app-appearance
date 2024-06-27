@@ -182,7 +182,7 @@ Protected Module modAppAppearance
 	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
 		Sub Windows_DarkMode_OptIn(Assigns pbOptIn As Boolean)
 		  #If TargetWindows And TargetDesktop Then
-		    'Windows: D2D Software-Rendering
+		    // https://blog.xojo.com/2021/11/18/welcome-to-the-dark-side-of-windows/
 		    Dim bDarkModeDisabled As Boolean = (Not pbOptIn)
 		    System.EnvironmentVariable("XOJO_WIN32_DARKMODE_DISABLED") = Str(bDarkModeDisabled)
 		  #Else
@@ -204,7 +204,9 @@ Protected Module modAppAppearance
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -212,12 +214,15 @@ Protected Module modAppAppearance
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -225,6 +230,7 @@ Protected Module modAppAppearance
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -232,6 +238,7 @@ Protected Module modAppAppearance
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Module
