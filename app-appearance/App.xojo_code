@@ -8,17 +8,23 @@ Inherits DesktopApplication
 		  #If TargetWindows Then
 		    IsWindowsDarkModeOptIn = False
 		    If IsDarkModeSupported Then
-		      Var n As Integer = MsgBox( _
-		      "DarkMode: Do you want to Opt-in?" + EndOfLine + EndOfLine + _
-		      "In a real application, you would store that choice as a user preference and read the value in App.Open.", _
-		      36)
-		      If n = 6 Then
-		        // user pressed Yes
+		      Var d As New MessageDialog
+		      d.IconType = MessageDialog.IconTypes.Question
+		      d.ActionButton.Caption = "Yes"
+		      d.CancelButton.Visible = False
+		      d.AlternateActionButton.Visible = True
+		      d.AlternateActionButton.Caption = "No"
+		      d.Title = "DarkMode"
+		      d.Message = "DarkMode: Do you want to Opt-in?"
+		      d.Explanation = "In a real application, you would store that choice as a user preference and read the value in App.Opening."
+		      
+		      Var b As MessageDialogButton = d.ShowModal
+		      Select Case b
+		      Case d.ActionButton 'Yes
 		        IsWindowsDarkModeOptIn = True
-		      Elseif n = 7 Then
-		        // user pressed No
+		      Case d.AlternateActionButton 'No
 		        IsWindowsDarkModeOptIn = False
-		      End If
+		      End Select
 		    End If
 		    Windows_DarkMode_OptIn = IsWindowsDarkModeOptIn
 		  #EndIf
