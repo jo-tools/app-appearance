@@ -1,9 +1,9 @@
 #tag Class
 Protected Class App
-Inherits Application
+Inherits DesktopApplication
 	#tag Event
-		Sub Open()
-		  Me.AutoQuit = True
+		Sub Opening()
+		  Me.AllowAutoQuit = True
 		  
 		  #If TargetWindows Then
 		    IsWindowsDarkModeOptIn = False
@@ -34,7 +34,7 @@ Inherits Application
 	#tag EndProperty
 
 	#tag Property, Flags = &h21
-		Private w As Window
+		Private w As DesktopWindow
 	#tag EndProperty
 
 
@@ -54,6 +54,14 @@ Inherits Application
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="IsWindowsDarkModeOptIn"
+			Visible=false
+			Group="Behavior"
+			InitialValue="false"
+			Type="Boolean"
+			EditorType=""
+		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
 #tag EndClass

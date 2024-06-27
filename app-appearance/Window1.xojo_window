@@ -1,36 +1,32 @@
-#tag Window
-Begin Window Window1
-   BackColor       =   &cFFFFFF00
+#tag DesktopWindow
+Begin DesktopWindow Window1
    Backdrop        =   0
-   CloseButton     =   True
-   Compatibility   =   ""
+   BackgroundColor =   &cFFFFFF00
    Composite       =   False
-   Frame           =   0
+   DefaultLocation =   0
    FullScreen      =   False
-   FullScreenButton=   False
-   HasBackColor    =   False
+   HasBackgroundColor=   False
+   HasCloseButton  =   True
+   HasFullScreenButton=   False
+   HasMaximizeButton=   False
+   HasMinimizeButton=   True
    Height          =   280
    ImplicitInstance=   False
-   LiveResize      =   True
    MacProcID       =   0
-   MaxHeight       =   32000
-   MaximizeButton  =   False
-   MaxWidth        =   32000
+   MaximumHeight   =   32000
+   MaximumWidth    =   32000
    MenuBar         =   775346175
    MenuBarVisible  =   True
-   MinHeight       =   280
-   MinimizeButton  =   True
-   MinWidth        =   600
-   Placement       =   0
+   MinimumHeight   =   280
+   MinimumWidth    =   600
    Resizeable      =   False
    Title           =   "App Appearance"
+   Type            =   0
    Visible         =   True
    Width           =   600
-   Begin Label labAvailabilityTitle
+   Begin DesktopLabel labAvailabilityTitle
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -61,11 +57,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   160
    End
-   Begin Label labAvailability
+   Begin DesktopLabel labAvailability
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -96,14 +90,12 @@ Begin Window Window1
       Visible         =   True
       Width           =   400
    End
-   Begin Canvas cnvAppIcon
+   Begin DesktopCanvas cnvAppIcon
       AcceptFocus     =   False
       AcceptTabs      =   False
       AutoDeactivate  =   True
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   True
       Height          =   64
       HelpTag         =   "https://www.jo-tools.ch/xojo/app-appearance/"
       Index           =   -2147483648
@@ -124,11 +116,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   64
    End
-   Begin Label labAppName
+   Begin DesktopLabel labAppName
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   "https://www.jo-tools.ch/xojo/app-appearance/"
@@ -159,11 +149,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   200
    End
-   Begin Label labAppVersion
+   Begin DesktopLabel labAppVersion
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   ""
@@ -194,7 +182,8 @@ Begin Window Window1
       Visible         =   True
       Width           =   200
    End
-   Begin Separator Separator1
+   Begin DesktopSeparator Separator1
+      AllowTabStop    =   True
       AutoDeactivate  =   True
       Enabled         =   True
       Height          =   3
@@ -210,17 +199,14 @@ Begin Window Window1
       Scope           =   2
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   100
       Transparent     =   True
       Visible         =   True
       Width           =   600
    End
-   Begin Label labThanks
+   Begin DesktopLabel labThanks
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   ""
@@ -240,7 +226,7 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Would you like to say 'Thank you'?"
-      TextAlign       =   2
+      TextAlign       =   3
       TextColor       =   &c66666600
       TextFont        =   "SmallSystem"
       TextSize        =   0.0
@@ -251,14 +237,12 @@ Begin Window Window1
       Visible         =   True
       Width           =   200
    End
-   Begin Canvas cnvPayPal
+   Begin DesktopCanvas cnvPayPal
       AcceptFocus     =   False
       AcceptTabs      =   False
       AutoDeactivate  =   True
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   True
       Height          =   30
       HelpTag         =   "https://paypal.me/jotools"
       Index           =   -2147483648
@@ -279,11 +263,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   106
    End
-   Begin Label labContact
+   Begin DesktopLabel labContact
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   30
       HelpTag         =   "xojo@jo-tools.ch"
@@ -303,7 +285,7 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Contact"
-      TextAlign       =   1
+      TextAlign       =   2
       TextColor       =   &c0072CE00
       TextFont        =   "System"
       TextSize        =   0.0
@@ -314,11 +296,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   70
    End
-   Begin Label labAppearanceCurrentTitle
+   Begin DesktopLabel labAppearanceCurrentTitle
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -349,11 +329,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   160
    End
-   Begin Label labAppearanceCurrent
+   Begin DesktopLabel labAppearanceCurrent
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -385,6 +363,7 @@ Begin Window Window1
       Width           =   400
    End
    Begin Timer timAppearanceRefresh
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   True
       Mode            =   0
@@ -392,10 +371,10 @@ Begin Window Window1
       Scope           =   2
       TabPanelIndex   =   0
    End
-   Begin PushButton btnAppearanceLight
+   Begin DesktopButton btnAppearanceLight
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Always Light"
       Default         =   False
@@ -424,10 +403,10 @@ Begin Window Window1
       Visible         =   True
       Width           =   240
    End
-   Begin PushButton btnAppearanceDark
+   Begin DesktopButton btnAppearanceDark
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "Always Dark"
       Default         =   False
@@ -456,10 +435,10 @@ Begin Window Window1
       Visible         =   True
       Width           =   240
    End
-   Begin PushButton btnAppearanceDefault
+   Begin DesktopButton btnAppearanceDefault
       AutoDeactivate  =   True
       Bold            =   False
-      ButtonStyle     =   "0"
+      ButtonStyle     =   0
       Cancel          =   False
       Caption         =   "System Default"
       Default         =   False
@@ -488,11 +467,9 @@ Begin Window Window1
       Visible         =   True
       Width           =   240
    End
-   Begin Label labChangeTitle
+   Begin DesktopLabel labChangeTitle
       AutoDeactivate  =   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
       Height          =   20
       HelpTag         =   ""
@@ -524,11 +501,11 @@ Begin Window Window1
       Width           =   160
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  Self.Title = "App Appearance -  v" + Str(App.MajorVersion) + "." + Str(App.MinorVersion) + "." + Str(App.BugVersion)
 		  
 		  #If (Not TargetMacOS) Then
@@ -544,7 +521,7 @@ End
 	#tag EndEvent
 
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
 		  #Pragma unused areas
 		  #Pragma unused g
 		  
@@ -601,7 +578,7 @@ End
 
 #tag Events labAvailability
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  Dim bAvailable As Boolean = False
 		  #If TargetMacOS Then
 		    bAvailable = macOSAppAppearanceAvailable
@@ -621,21 +598,21 @@ End
 #tag EndEvents
 #tag Events cnvAppIcon
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
 		  #Pragma unused areas
 		  
 		  g.DrawPicture(AppIcon_64, 0, 0)
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    ShowURL("https://www.jo-tools.ch/xojo/app-appearance/")
 		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #Pragma unused X
 		  #Pragma unused Y
 		  
@@ -656,21 +633,21 @@ End
 #tag EndEvents
 #tag Events labAppName
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  Me.Text = "App Appearance"
-		  Me.TextSize = 18
+		  Me.FontSize = 18
 		  Me.Bold = True
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    ShowURL("https://www.jo-tools.ch/xojo/app-appearance/")
 		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #Pragma unused X
 		  #Pragma unused Y
 		  
@@ -691,9 +668,9 @@ End
 #tag EndEvents
 #tag Events labAppVersion
 	#tag Event
-		Sub Open()
-		  If (App.ShortVersion <> "") Then
-		    Me.Text = App.ShortVersion
+		Sub Opening()
+		  If (App.Version <> "") Then
+		    Me.Text = App.Version
 		    Return
 		  End If
 		  
@@ -703,7 +680,7 @@ End
 #tag EndEvents
 #tag Events cnvPayPal
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
 		  #Pragma unused areas
 		  
 		  g.ForeColor = &cFFFFFF
@@ -728,14 +705,14 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    ShowURL("https://paypal.me/jotools")
 		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #Pragma unused X
 		  #Pragma unused Y
 		  
@@ -756,7 +733,7 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #Pragma unused X
 		  #Pragma unused Y
 		  
@@ -764,7 +741,7 @@ End
 		End Function
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    ShowURL("mailto:xojo@jo-tools.ch")
 		  End If
@@ -780,7 +757,7 @@ End
 #tag EndEvents
 #tag Events btnAppearanceLight
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  macOSAppAppearance = NSAppearanceType.Light
 		  timAppearanceRefresh.Mode = Timer.ModeSingle
 		End Sub
@@ -788,7 +765,7 @@ End
 #tag EndEvents
 #tag Events btnAppearanceDark
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  macOSAppAppearance = NSAppearanceType.Dark
 		  timAppearanceRefresh.Mode = Timer.ModeSingle
 		End Sub
@@ -796,7 +773,7 @@ End
 #tag EndEvents
 #tag Events btnAppearanceDefault
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  macOSAppAppearance = NSAppearanceType.Default
 		  timAppearanceRefresh.Mode = Timer.ModeSingle
 		End Sub
@@ -804,39 +781,43 @@ End
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="MinWidth"
+		Name="MinimumWidth"
 		Visible=true
 		Group="Size"
 		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MinHeight"
+		Name="MinimumHeight"
 		Visible=true
 		Group="Size"
 		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="MaximumWidth"
 		Visible=true
 		Group="Size"
 		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="MaximumHeight"
 		Visible=true
 		Group="Size"
 		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Frame"
+		Name="Type"
 		Visible=true
 		Group="Frame"
 		InitialValue="0"
-		Type="Integer"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -853,43 +834,43 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="CloseButton"
+		Name="HasCloseButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaximizeButton"
+		Name="HasMaximizeButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MinimizeButton"
+		Name="HasMinimizeButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreenButton"
+		Name="HasFullScreenButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Placement"
+		Name="DefaultLocation"
 		Visible=true
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -900,46 +881,44 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="LiveResize"
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
+		Name="HasBackgroundColor"
 		Visible=true
 		Group="Background"
 		InitialValue="False"
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="BackColor"
+		Name="BackgroundColor"
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
 		Type="Color"
+		EditorType="Color"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Interfaces"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -947,6 +926,7 @@ End
 		Group="Size"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Height"
@@ -954,6 +934,7 @@ End
 		Group="Size"
 		InitialValue="400"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -961,6 +942,7 @@ End
 		Group="Frame"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Resizeable"
@@ -968,19 +950,23 @@ End
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Composite"
+		Visible=false
 		Group="OS X (Carbon)"
 		InitialValue="False"
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MacProcID"
+		Visible=false
 		Group="OS X (Carbon)"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="ImplicitInstance"
@@ -988,7 +974,7 @@ End
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -996,28 +982,31 @@ End
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="FullScreen"
+		Visible=false
 		Group="Behavior"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
 		Visible=true
 		Group="Background"
+		InitialValue=""
 		Type="Picture"
-		EditorType="Picture"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MenuBar"
 		Visible=true
 		Group="Menus"
+		InitialValue=""
 		Type="MenuBar"
-		EditorType="MenuBar"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MenuBarVisible"
@@ -1025,6 +1014,6 @@ End
 		Group="Deprecated"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior
