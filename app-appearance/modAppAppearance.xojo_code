@@ -28,14 +28,14 @@ Protected Module modAppAppearance
 		      Declare Function GetSystemMetrics Lib "User32" ( metrixIndex As Int32 ) As Int32
 		      Soft Declare Function RtlGetVersion Lib "ntdll.dll" (info As Ptr ) As Int32
 		      
-		      Dim info As MemoryBlock
-		      Dim iMajorVersion, iMinorVersion, iBuildNumber, iPlatformID As Integer
-		      Dim sServicePack As String
-		      Dim iServicePackMajor, iServicePackMinor As Integer
-		      Dim iSuiteMask As Integer
-		      Dim iProductType As Integer
+		      Var info As MemoryBlock
+		      Var iMajorVersion, iMinorVersion, iBuildNumber, iPlatformID As Integer
+		      Var sServicePack As String
+		      Var iServicePackMajor, iServicePackMinor As Integer
+		      Var iSuiteMask As Integer
+		      Var iProductType As Integer
 		      
-		      Dim iSPOffset As Integer
+		      Var iSPOffset As Integer
 		      If System.IsFunctionAvailable( "GetVersionExW", "Kernel32" ) Then
 		        iSPOffset = 20 + (2 * 128)
 		        info =  New MemoryBlock( iSPOffset + 6 + 2)
@@ -111,14 +111,14 @@ Protected Module modAppAppearance
 		    Declare Function respondsToSelector Lib "Cocoa" selector "respondsToSelector:" (ptrObj As Ptr, ptrSelector As Ptr) As Boolean
 		    Declare Function sharedApplication Lib "AppKit" Selector "sharedApplication" (ptrClassRef As Ptr) As Ptr
 		    
-		    Dim ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
+		    Var ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
 		    If (ptrSharedApp <> Nil) And respondsToSelector(ptrSharedApp, NSSelectorFromString("setAppearance:")) Then
 		      // https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc
 		      // https://developer.apple.com/documentation/appkit/nsappearancename?language=objc
 		      Soft Declare Function getAppearance Lib "AppKit" Selector "appearance" (ptrNSApplicationInstance As Ptr) As Ptr
 		      Soft Declare Function NSAppearanceNamed Lib "AppKit" Selector "appearanceNamed:" (ptrNSAppearanceClass As Ptr, sAppearanceName As CFStringRef) As Ptr
 		      
-		      Dim ptrAppearance As Ptr = getAppearance(ptrSharedApp)
+		      Var ptrAppearance As Ptr = getAppearance(ptrSharedApp)
 		      
 		      if (ptrAppearance = NSAppearanceNamed(NSClassFromString("NSAppearance"), "NSAppearanceNameAqua")) then return NSAppearanceType.Light
 		      if (ptrAppearance = NSAppearanceNamed(NSClassFromString("NSAppearance"), "NSAppearanceNameDarkAqua")) then return NSAppearanceType.Dark
@@ -138,7 +138,7 @@ Protected Module modAppAppearance
 		    Declare Function respondsToSelector Lib "Cocoa" selector "respondsToSelector:" (ptrObj As Ptr, ptrSelector As Ptr) As Boolean
 		    Declare Function sharedApplication Lib "AppKit" Selector "sharedApplication" (ptrClassRef As Ptr) As Ptr
 		    
-		    Dim ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
+		    Var ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
 		    If (ptrSharedApp <> Nil) And respondsToSelector(ptrSharedApp, NSSelectorFromString("setAppearance:")) Then
 		      // https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc
 		      // https://developer.apple.com/documentation/appkit/nsappearancename?language=objc
@@ -168,7 +168,7 @@ Protected Module modAppAppearance
 		    Declare Function respondsToSelector Lib "Cocoa" selector "respondsToSelector:" (ptrObj As Ptr, ptrSelector As Ptr) As Boolean
 		    Declare Function sharedApplication Lib "AppKit" Selector "sharedApplication" (ptrClassRef As Ptr) As Ptr
 		    
-		    Dim ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
+		    Var ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
 		    If (ptrSharedApp <> Nil) And respondsToSelector(ptrSharedApp, NSSelectorFromString("setAppearance:")) Then
 		      // https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc
 		      Return True
@@ -183,7 +183,7 @@ Protected Module modAppAppearance
 		Sub Windows_DarkMode_OptIn(Assigns pbOptIn As Boolean)
 		  #If TargetWindows And TargetDesktop Then
 		    // https://blog.xojo.com/2021/11/18/welcome-to-the-dark-side-of-windows/
-		    Dim bDarkModeDisabled As Boolean = (Not pbOptIn)
+		    Var bDarkModeDisabled As Boolean = (Not pbOptIn)
 		    System.EnvironmentVariable("XOJO_WIN32_DARKMODE_DISABLED") = Str(bDarkModeDisabled)
 		  #Else
 		    #Pragma unused pbOptIn

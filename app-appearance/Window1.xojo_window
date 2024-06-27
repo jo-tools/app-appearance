@@ -532,13 +532,13 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub RefreshAppearanceCurrent()
-		  Dim sStatus As String
+		  Var sStatus As String
 		  
-		  Dim sCurrentlyLightOrDark As String = " (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		  Var sCurrentlyLightOrDark As String = " (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
 		  
 		  #If TargetWindows Then
 		    
-		    Dim sOptIn As String = ""
+		    Var sOptIn As String = ""
 		    If IsDarkModeSupported Then
 		      sOptIn = " [DarkMode OptIn: " + If(App.IsWindowsDarkModeOptIn, "yes", "no") + "]"
 		    End If
@@ -551,7 +551,7 @@ End
 		    
 		  #ElseIf TargetMacOS Then
 		    
-		    Dim currentAppearance As NSAppearanceType = macOSAppAppearance
+		    Var currentAppearance As NSAppearanceType = macOSAppAppearance
 		    Select Case currentAppearance
 		    Case NSAppearanceType.Light
 		      sStatus = "Always Light"
@@ -579,7 +579,7 @@ End
 #tag Events labAvailability
 	#tag Event
 		Sub Opening()
-		  Dim bAvailable As Boolean = False
+		  Var bAvailable As Boolean = False
 		  #If TargetMacOS Then
 		    bAvailable = macOSAppAppearanceAvailable
 		  #ElseIf TargetWindows Then

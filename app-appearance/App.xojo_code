@@ -8,7 +8,7 @@ Inherits DesktopApplication
 		  #If TargetWindows Then
 		    IsWindowsDarkModeOptIn = False
 		    If IsDarkModeSupported Then
-		      Dim n As Integer = MsgBox( _
+		      Var n As Integer = MsgBox( _
 		      "DarkMode: Do you want to Opt-in?" + EndOfLine + EndOfLine + _
 		      "In a real application, you would store that choice as a user preference and read the value in App.Open.", _
 		      36)
