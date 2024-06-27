@@ -1,6 +1,7 @@
 #tag Module
 Protected Module modAppAppearance
-	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function IsDarkModeSupported() As Boolean
 		  'Global
 		  If (Not AppSupportsDarkMode) Or (Not TargetDesktop) Then Return False
@@ -92,8 +93,8 @@ Protected Module modAppAppearance
 		    Return False
 		  #EndIf
 		  
-		  #If TargetLinux Then
-		    'Xojo (at least until 2021r3.1) doesn't support DarkMode on Linux
+		  #If TargetLinux And (XojoVersion < 2022.04) Then
+		    'Xojo supports DarkMode on Linux as of 2022r4
 		    Return False
 		  #EndIf
 		  
@@ -101,7 +102,7 @@ Protected Module modAppAppearance
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function macOSAppAppearance() As NSAppearanceType
 		  #If TargetMacOS Then
 		    If (Not IsDarkModeSupported) Then Return NSAppearanceType.Default
@@ -128,7 +129,7 @@ Protected Module modAppAppearance
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Sub macOSAppAppearance(Assigns appearance As NSAppearanceType)
 		  #If TargetMacOS Then
 		    If (Not IsDarkModeSupported) Then Return
@@ -158,7 +159,7 @@ Protected Module modAppAppearance
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function macOSAppAppearanceAvailable() As Boolean
 		  #If TargetMacOS And TargetDesktop Then
 		    If (Not IsDarkModeSupported) Then Return False
@@ -179,20 +180,21 @@ Protected Module modAppAppearance
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Sub Windows_DarkMode_OptIn(Assigns pbOptIn As Boolean)
 		  #If TargetWindows And TargetDesktop Then
 		    // https://blog.xojo.com/2021/11/18/welcome-to-the-dark-side-of-windows/
 		    Var bDarkModeDisabled As Boolean = (Not pbOptIn)
-		    System.EnvironmentVariable("XOJO_WIN32_DARKMODE_DISABLED") = Str(bDarkModeDisabled)
+		    System.EnvironmentVariable("XOJO_WIN32_DARKMODE_DISABLED") = bDarkModeDisabled.ToString
 		  #Else
 		    #Pragma unused pbOptIn
 		  #EndIf
+		  
 		End Sub
 	#tag EndMethod
 
 
-	#tag Enum, Name = NSAppearanceType, Flags = &h0
+	#tag Enum, Name = NSAppearanceType, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Default=0
 		  Light=1
 		Dark=2
