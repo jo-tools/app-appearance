@@ -3,7 +3,7 @@ Begin DesktopWindow Window1
    Backdrop        =   0
    BackgroundColor =   &cFFFFFF00
    Composite       =   False
-   DefaultLocation =   0
+   DefaultLocation =   2
    FullScreen      =   False
    HasBackgroundColor=   False
    HasCloseButton  =   True
@@ -525,7 +525,7 @@ End
 		  #Pragma unused areas
 		  #Pragma unused g
 		  
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		  timAppearanceRefresh.RunMode = Timer.RunModes.Single
 		End Sub
 	#tag EndEvent
 
@@ -534,7 +534,7 @@ End
 		Private Sub RefreshAppearanceCurrent()
 		  Var sStatus As String
 		  
-		  Var sCurrentlyLightOrDark As String = " (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		  Var sCurrentlyLightOrDark As String = " (currently: " + If(Color.IsDarkMode, "Dark", "Light") + ")"
 		  
 		  #If TargetWindows Then
 		    
@@ -607,7 +607,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    ShowURL("https://www.jo-tools.ch/xojo/app-appearance/")
+		    System.GotoURL("https://www.jo-tools.ch/xojo/app-appearance/")
 		  End If
 		End Sub
 	#tag EndEvent
@@ -642,7 +642,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    ShowURL("https://www.jo-tools.ch/xojo/app-appearance/")
+		    System.GotoURL("https://www.jo-tools.ch/xojo/app-appearance/")
 		  End If
 		End Sub
 	#tag EndEvent
@@ -683,13 +683,13 @@ End
 		Sub Paint(g As Graphics, areas() As Rect)
 		  #Pragma unused areas
 		  
-		  g.ForeColor = &cFFFFFF
+		  g.DrawingColor = &cFFFFFF
 		  #If (XojoVersion >= 2018.03) Then
-		    If IsDarkMode Then g.ForeColor = &cD0D0D0
+		    If Color.IsDarkMode Then g.DrawingColor = &cD0D0D0
 		  #EndIf
-		  g.FillRect(0, 0, g.Width, g.Height)
-		  g.ForeColor = &c909090
-		  g.DrawRect(0, 0, g.Width, g.Height)
+		  g.FillRectangle(0, 0, g.Width, g.Height)
+		  g.DrawingColor = &c909090
+		  g.DrawRectangle(0, 0, g.Width, g.Height)
 		  g.DrawPicture(PayPal, 3, 2, 100, 26, 0, 0, PayPal.Width, PayPal.Height)
 		End Sub
 	#tag EndEvent
@@ -707,7 +707,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    ShowURL("https://paypal.me/jotools")
+		    System.GotoURL("https://paypal.me/jotools")
 		  End If
 		End Sub
 	#tag EndEvent
@@ -743,7 +743,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    ShowURL("mailto:xojo@jo-tools.ch")
+		    System.GotoURL("mailto:xojo@jo-tools.ch")
 		  End If
 		End Sub
 	#tag EndEvent
@@ -759,7 +759,7 @@ End
 	#tag Event
 		Sub Pressed()
 		  macOSAppAppearance = NSAppearanceType.Light
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		  timAppearanceRefresh.RunMode = Timer.RunModes.Single
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -767,7 +767,7 @@ End
 	#tag Event
 		Sub Pressed()
 		  macOSAppAppearance = NSAppearanceType.Dark
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		  timAppearanceRefresh.RunMode = Timer.RunModes.Single
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -775,7 +775,7 @@ End
 	#tag Event
 		Sub Pressed()
 		  macOSAppAppearance = NSAppearanceType.Default
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		  timAppearanceRefresh.RunMode = Timer.RunModes.Single
 		End Sub
 	#tag EndEvent
 #tag EndEvents
