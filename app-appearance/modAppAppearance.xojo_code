@@ -1,6 +1,6 @@
 #tag Module
 Protected Module modAppAppearance
-	#tag CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
+	#tag CompatibilityFlags = API2Only and ( ( TargetDesktop and ( Target32Bit or Target64Bit ) ) )
 	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function IsDarkModeSupported() As Boolean
 		  'Global
@@ -155,13 +155,16 @@ Protected Module modAppAppearance
 		        setAppearance(sharedApplication(NSClassFromString("NSApplication")), nil)
 		      End Select
 		    End If
+		  #Else
+		    #Pragma Unused appearance
 		  #EndIf
+		  
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function macOSAppAppearanceAvailable() As Boolean
-		  #If TargetMacOS And TargetDesktop Then
+		  #If TargetMacOS Then
 		    If (Not IsDarkModeSupported) Then Return False
 		    
 		    Declare Function NSClassFromString Lib "Cocoa" (sClassName As CFStringRef) As Ptr
@@ -182,7 +185,7 @@ Protected Module modAppAppearance
 
 	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Sub Windows_DarkMode_OptIn(Assigns pbOptIn As Boolean)
-		  #If TargetWindows And TargetDesktop Then
+		  #If TargetWindows Then
 		    // https://blog.xojo.com/2021/11/18/welcome-to-the-dark-side-of-windows/
 		    Var bDarkModeDisabled As Boolean = (Not pbOptIn)
 		    System.EnvironmentVariable("XOJO_WIN32_DARKMODE_DISABLED") = bDarkModeDisabled.ToString
