@@ -13,7 +13,7 @@ This example project shows how to override this, so that your application can pr
 ### Windows
 DarkMode on Windows is... not that good - at least not for Win32 Apps/Controls, which is what Xojo is currently using. For that reason it is best practice to explizitly allow the user to ```Opt-in``` for DarkMode support of your application. Many Windows users love to have their system setting to have dark appearance in apps, but might dislike that in Win32-apps.  
 Starting with Xojo 2021r3, Xojo supports DarkMode for ```TargetWindows```. This example project shows how to allow the users to ```Opt-in``` for DarkMode support, because Xojo by default always uses the system settings.  
-*Note: Unlike macOS, you can never have the application show in DarkMode on if Windows app appearance setting is 'Light Mode'.*
+*Note: Unlike macOS, you can never have the application show in DarkMode on Windows if 'app appearance setting' is 'Light Mode'.*
 
 ### ScreenShots
 macOS in DarkMode, but application in ```Always Light```  
@@ -34,8 +34,8 @@ Windows in DarkMode and user's app-preference: ```DarkMode Opt-in: yes```, so ap
 [Xojo](https://www.xojo.com/) is a rapid application development for Desktop, Web, Mobile & Raspberry Pi.  
 
 The Desktop application Xojo example project ```AppAppearance.xojo_project``` is using:
-- Xojo 2018r4
-- API 1
+- Xojo 2024r1.1
+- API 2
 
 *Note: You'll need to build with Xojo 2021r3 or later to get DarkMode Support on TargetWindows*
 
