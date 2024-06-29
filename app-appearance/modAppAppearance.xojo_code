@@ -1,6 +1,7 @@
 #tag Module
 Protected Module modAppAppearance
-	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag CompatibilityFlags = API2Only and ( ( TargetDesktop and ( Target32Bit or Target64Bit ) ) )
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function IsDarkModeSupported() As Boolean
 		  'Global
 		  If (Not AppSupportsDarkMode) Or (Not TargetDesktop) Then Return False
@@ -28,14 +29,14 @@ Protected Module modAppAppearance
 		      Declare Function GetSystemMetrics Lib "User32" ( metrixIndex As Int32 ) As Int32
 		      Soft Declare Function RtlGetVersion Lib "ntdll.dll" (info As Ptr ) As Int32
 		      
-		      Dim info As MemoryBlock
-		      Dim iMajorVersion, iMinorVersion, iBuildNumber, iPlatformID As Integer
-		      Dim sServicePack As String
-		      Dim iServicePackMajor, iServicePackMinor As Integer
-		      Dim iSuiteMask As Integer
-		      Dim iProductType As Integer
+		      Var info As MemoryBlock
+		      Var iMajorVersion, iMinorVersion, iBuildNumber, iPlatformID As Integer
+		      Var sServicePack As String
+		      Var iServicePackMajor, iServicePackMinor As Integer
+		      Var iSuiteMask As Integer
+		      Var iProductType As Integer
 		      
-		      Dim iSPOffset As Integer
+		      Var iSPOffset As Integer
 		      If System.IsFunctionAvailable( "GetVersionExW", "Kernel32" ) Then
 		        iSPOffset = 20 + (2 * 128)
 		        info =  New MemoryBlock( iSPOffset + 6 + 2)
@@ -92,8 +93,8 @@ Protected Module modAppAppearance
 		    Return False
 		  #EndIf
 		  
-		  #If TargetLinux Then
-		    'Xojo (at least until 2021r3.1) doesn't support DarkMode on Linux
+		  #If TargetLinux And (XojoVersion < 2022.04) Then
+		    'Xojo supports DarkMode on Linux as of 2022r4
 		    Return False
 		  #EndIf
 		  
@@ -101,7 +102,7 @@ Protected Module modAppAppearance
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function macOSAppAppearance() As NSAppearanceType
 		  #If TargetMacOS Then
 		    If (Not IsDarkModeSupported) Then Return NSAppearanceType.Default
@@ -111,14 +112,14 @@ Protected Module modAppAppearance
 		    Declare Function respondsToSelector Lib "Cocoa" selector "respondsToSelector:" (ptrObj As Ptr, ptrSelector As Ptr) As Boolean
 		    Declare Function sharedApplication Lib "AppKit" Selector "sharedApplication" (ptrClassRef As Ptr) As Ptr
 		    
-		    Dim ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
+		    Var ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
 		    If (ptrSharedApp <> Nil) And respondsToSelector(ptrSharedApp, NSSelectorFromString("setAppearance:")) Then
 		      // https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc
 		      // https://developer.apple.com/documentation/appkit/nsappearancename?language=objc
 		      Soft Declare Function getAppearance Lib "AppKit" Selector "appearance" (ptrNSApplicationInstance As Ptr) As Ptr
 		      Soft Declare Function NSAppearanceNamed Lib "AppKit" Selector "appearanceNamed:" (ptrNSAppearanceClass As Ptr, sAppearanceName As CFStringRef) As Ptr
 		      
-		      Dim ptrAppearance As Ptr = getAppearance(ptrSharedApp)
+		      Var ptrAppearance As Ptr = getAppearance(ptrSharedApp)
 		      
 		      if (ptrAppearance = NSAppearanceNamed(NSClassFromString("NSAppearance"), "NSAppearanceNameAqua")) then return NSAppearanceType.Light
 		      if (ptrAppearance = NSAppearanceNamed(NSClassFromString("NSAppearance"), "NSAppearanceNameDarkAqua")) then return NSAppearanceType.Dark
@@ -128,7 +129,7 @@ Protected Module modAppAppearance
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Sub macOSAppAppearance(Assigns appearance As NSAppearanceType)
 		  #If TargetMacOS Then
 		    If (Not IsDarkModeSupported) Then Return
@@ -138,7 +139,7 @@ Protected Module modAppAppearance
 		    Declare Function respondsToSelector Lib "Cocoa" selector "respondsToSelector:" (ptrObj As Ptr, ptrSelector As Ptr) As Boolean
 		    Declare Function sharedApplication Lib "AppKit" Selector "sharedApplication" (ptrClassRef As Ptr) As Ptr
 		    
-		    Dim ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
+		    Var ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
 		    If (ptrSharedApp <> Nil) And respondsToSelector(ptrSharedApp, NSSelectorFromString("setAppearance:")) Then
 		      // https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc
 		      // https://developer.apple.com/documentation/appkit/nsappearancename?language=objc
@@ -154,13 +155,16 @@ Protected Module modAppAppearance
 		        setAppearance(sharedApplication(NSClassFromString("NSApplication")), nil)
 		      End Select
 		    End If
+		  #Else
+		    #Pragma Unused appearance
 		  #EndIf
+		  
 		End Sub
 	#tag EndMethod
 
-	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Function macOSAppAppearanceAvailable() As Boolean
-		  #If TargetMacOS And TargetDesktop Then
+		  #If TargetMacOS Then
 		    If (Not IsDarkModeSupported) Then Return False
 		    
 		    Declare Function NSClassFromString Lib "Cocoa" (sClassName As CFStringRef) As Ptr
@@ -168,7 +172,7 @@ Protected Module modAppAppearance
 		    Declare Function respondsToSelector Lib "Cocoa" selector "respondsToSelector:" (ptrObj As Ptr, ptrSelector As Ptr) As Boolean
 		    Declare Function sharedApplication Lib "AppKit" Selector "sharedApplication" (ptrClassRef As Ptr) As Ptr
 		    
-		    Dim ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
+		    Var ptrSharedApp As Ptr = sharedApplication(NSClassFromString("NSApplication"))
 		    If (ptrSharedApp <> Nil) And respondsToSelector(ptrSharedApp, NSSelectorFromString("setAppearance:")) Then
 		      // https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc
 		      Return True
@@ -179,20 +183,21 @@ Protected Module modAppAppearance
 		End Function
 	#tag EndMethod
 
-	#tag Method, Flags = &h0, CompatibilityFlags = (TargetDesktop and (Target32Bit or Target64Bit))
+	#tag Method, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Sub Windows_DarkMode_OptIn(Assigns pbOptIn As Boolean)
-		  #If TargetWindows And TargetDesktop Then
-		    'Windows: D2D Software-Rendering
-		    Dim bDarkModeDisabled As Boolean = (Not pbOptIn)
-		    System.EnvironmentVariable("XOJO_WIN32_DARKMODE_DISABLED") = Str(bDarkModeDisabled)
+		  #If TargetWindows Then
+		    // https://blog.xojo.com/2021/11/18/welcome-to-the-dark-side-of-windows/
+		    Var bDarkModeDisabled As Boolean = (Not pbOptIn)
+		    System.EnvironmentVariable("XOJO_WIN32_DARKMODE_DISABLED") = bDarkModeDisabled.ToString
 		  #Else
 		    #Pragma unused pbOptIn
 		  #EndIf
+		  
 		End Sub
 	#tag EndMethod
 
 
-	#tag Enum, Name = NSAppearanceType, Flags = &h0
+	#tag Enum, Name = NSAppearanceType, Flags = &h0, CompatibilityFlags = API2Only and ( (TargetDesktop and (Target32Bit or Target64Bit)) )
 		Default=0
 		  Light=1
 		Dark=2
@@ -204,7 +209,9 @@ Protected Module modAppAppearance
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -212,12 +219,15 @@ Protected Module modAppAppearance
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -225,6 +235,7 @@ Protected Module modAppAppearance
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -232,6 +243,7 @@ Protected Module modAppAppearance
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Module

@@ -1,45 +1,43 @@
-#tag Window
-Begin Window Window1
-   BackColor       =   &cFFFFFF00
+#tag DesktopWindow
+Begin DesktopWindow Window1
    Backdrop        =   0
-   CloseButton     =   True
-   Compatibility   =   ""
+   BackgroundColor =   &cFFFFFF00
    Composite       =   False
-   Frame           =   0
+   DefaultLocation =   2
    FullScreen      =   False
-   FullScreenButton=   False
-   HasBackColor    =   False
+   HasBackgroundColor=   False
+   HasCloseButton  =   True
+   HasFullScreenButton=   False
+   HasMaximizeButton=   False
+   HasMinimizeButton=   True
    Height          =   280
    ImplicitInstance=   False
-   LiveResize      =   True
    MacProcID       =   0
-   MaxHeight       =   32000
-   MaximizeButton  =   False
-   MaxWidth        =   32000
+   MaximumHeight   =   32000
+   MaximumWidth    =   32000
    MenuBar         =   775346175
    MenuBarVisible  =   True
-   MinHeight       =   280
-   MinimizeButton  =   True
-   MinWidth        =   600
-   Placement       =   0
+   MinimumHeight   =   280
+   MinimumWidth    =   600
    Resizeable      =   False
    Title           =   "App Appearance"
+   Type            =   0
    Visible         =   True
    Width           =   600
-   Begin Label labAvailabilityTitle
-      AutoDeactivate  =   True
+   Begin DesktopLabel labAvailabilityTitle
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -50,31 +48,29 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Availability:"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   115
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   160
    End
-   Begin Label labAvailability
-      AutoDeactivate  =   True
+   Begin DesktopLabel labAvailability
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   180
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
@@ -85,27 +81,23 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "(not) available"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   115
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   400
    End
-   Begin Canvas cnvAppIcon
-      AcceptFocus     =   False
-      AcceptTabs      =   False
-      AutoDeactivate  =   True
+   Begin DesktopCanvas cnvAppIcon
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   True
       Height          =   64
-      HelpTag         =   "https://www.jo-tools.ch/xojo/app-appearance/"
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   20
@@ -118,20 +110,20 @@ Begin Window Window1
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
+      Tooltip         =   ""
       Top             =   20
       Transparent     =   True
-      UseFocusRing    =   True
       Visible         =   True
       Width           =   64
    End
-   Begin Label labAppName
-      AutoDeactivate  =   True
+   Begin DesktopLabel labAppName
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   "https://www.jo-tools.ch/xojo/app-appearance/"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -148,25 +140,23 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "App Appearance"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c0072D800
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   20
       Transparent     =   True
       Underline       =   True
       Visible         =   True
-      Width           =   200
+      Width           =   180
    End
-   Begin Label labAppVersion
-      AutoDeactivate  =   True
+   Begin DesktopLabel labAppVersion
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -183,22 +173,21 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "AppVersion"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   54
       Transparent     =   True
       Underline       =   False
       Visible         =   True
-      Width           =   200
+      Width           =   180
    End
-   Begin Separator Separator1
-      AutoDeactivate  =   True
+   Begin DesktopSeparator Separator1
+      Active          =   False
+      AllowAutoDeactivate=   True
+      AllowTabStop    =   True
       Enabled         =   True
       Height          =   3
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   0
@@ -207,27 +196,32 @@ Begin Window Window1
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
+      Tooltip         =   ""
       Top             =   100
       Transparent     =   True
       Visible         =   True
       Width           =   600
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
    End
-   Begin Label labThanks
-      AutoDeactivate  =   True
+   Begin DesktopLabel labThanks
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   380
+      Left            =   360
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   False
@@ -240,27 +234,23 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Would you like to say 'Thank you'?"
-      TextAlign       =   2
+      TextAlignment   =   3
       TextColor       =   &c66666600
-      TextFont        =   "SmallSystem"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   20
       Transparent     =   True
       Underline       =   False
       Visible         =   True
-      Width           =   200
+      Width           =   220
    End
-   Begin Canvas cnvPayPal
-      AcceptFocus     =   False
-      AcceptTabs      =   False
-      AutoDeactivate  =   True
+   Begin DesktopCanvas cnvPayPal
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   True
       Height          =   30
-      HelpTag         =   "https://paypal.me/jotools"
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   474
@@ -273,20 +263,20 @@ Begin Window Window1
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
+      Tooltip         =   ""
       Top             =   54
       Transparent     =   True
-      UseFocusRing    =   True
       Visible         =   True
       Width           =   106
    End
-   Begin Label labContact
-      AutoDeactivate  =   True
+   Begin DesktopLabel labContact
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   "xojo@jo-tools.ch"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -303,31 +293,29 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Contact"
-      TextAlign       =   1
+      TextAlignment   =   0
       TextColor       =   &c0072CE00
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   54
       Transparent     =   True
       Underline       =   True
       Visible         =   True
       Width           =   70
    End
-   Begin Label labAppearanceCurrentTitle
-      AutoDeactivate  =   True
+   Begin DesktopLabel labAppearanceCurrentTitle
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -338,31 +326,29 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Current Appearance:"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   145
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   160
    End
-   Begin Label labAppearanceCurrent
-      AutoDeactivate  =   True
+   Begin DesktopLabel labAppearanceCurrent
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   180
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
@@ -373,11 +359,9 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "(default)"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   145
       Transparent     =   False
       Underline       =   False
@@ -385,6 +369,7 @@ Begin Window Window1
       Width           =   400
    End
    Begin Timer timAppearanceRefresh
+      Enabled         =   True
       Index           =   -2147483648
       LockedInPosition=   True
       Mode            =   0
@@ -392,116 +377,116 @@ Begin Window Window1
       Scope           =   2
       TabPanelIndex   =   0
    End
-   Begin PushButton btnAppearanceLight
-      AutoDeactivate  =   True
+   Begin DesktopButton btnAppearanceLight
+      AllowAutoDeactivate=   True
       Bold            =   False
-      ButtonStyle     =   "0"
       Cancel          =   False
       Caption         =   "Always Light"
       Default         =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   180
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
+      MacButtonStyle  =   0
       Scope           =   2
       TabIndex        =   12
       TabPanelIndex   =   0
       TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   175
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   240
    End
-   Begin PushButton btnAppearanceDark
-      AutoDeactivate  =   True
+   Begin DesktopButton btnAppearanceDark
+      AllowAutoDeactivate=   True
       Bold            =   False
-      ButtonStyle     =   "0"
       Cancel          =   False
       Caption         =   "Always Dark"
       Default         =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   180
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
+      MacButtonStyle  =   0
       Scope           =   2
       TabIndex        =   13
       TabPanelIndex   =   0
       TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   207
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   240
    End
-   Begin PushButton btnAppearanceDefault
-      AutoDeactivate  =   True
+   Begin DesktopButton btnAppearanceDefault
+      AllowAutoDeactivate=   True
       Bold            =   False
-      ButtonStyle     =   "0"
       Cancel          =   False
       Caption         =   "System Default"
       Default         =   False
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   180
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
+      MacButtonStyle  =   0
       Scope           =   2
       TabIndex        =   14
       TabPanelIndex   =   0
       TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   239
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   240
    End
-   Begin Label labChangeTitle
-      AutoDeactivate  =   True
+   Begin DesktopLabel labChangeTitle
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   20
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
       Left            =   20
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockLeft        =   True
       LockRight       =   False
       LockTop         =   True
@@ -512,11 +497,9 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Change to:"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   175
       Transparent     =   False
       Underline       =   False
@@ -524,11 +507,11 @@ Begin Window Window1
       Width           =   160
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  Self.Title = "App Appearance -  v" + Str(App.MajorVersion) + "." + Str(App.MinorVersion) + "." + Str(App.BugVersion)
 		  
 		  #If (Not TargetMacOS) Then
@@ -537,31 +520,32 @@ End
 		    btnAppearanceDefault.Visible = False
 		    btnAppearanceLight.Visible = False
 		    
-		    Self.MinHeight = labChangeTitle.Top + 10
-		    Self.Height = Self.MinHeight
+		    Self.MinimumHeight = labChangeTitle.Top + 10
+		    Self.Height = Self.MinimumHeight
 		  #EndIf
+		  
 		End Sub
 	#tag EndEvent
 
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
 		  #Pragma unused areas
 		  #Pragma unused g
 		  
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		  timAppearanceRefresh.RunMode = Timer.RunModes.Single
 		End Sub
 	#tag EndEvent
 
 
 	#tag Method, Flags = &h21
 		Private Sub RefreshAppearanceCurrent()
-		  Dim sStatus As String
+		  Var sStatus As String
 		  
-		  Dim sCurrentlyLightOrDark As String = " (currently: " + If(IsDarkMode, "Dark", "Light") + ")"
+		  Var sCurrentlyLightOrDark As String = " (currently: " + If(Color.IsDarkMode, "Dark", "Light") + ")"
 		  
 		  #If TargetWindows Then
 		    
-		    Dim sOptIn As String = ""
+		    Var sOptIn As String = ""
 		    If IsDarkModeSupported Then
 		      sOptIn = " [DarkMode OptIn: " + If(App.IsWindowsDarkModeOptIn, "yes", "no") + "]"
 		    End If
@@ -574,7 +558,7 @@ End
 		    
 		  #ElseIf TargetMacOS Then
 		    
-		    Dim currentAppearance As NSAppearanceType = macOSAppAppearance
+		    Var currentAppearance As NSAppearanceType = macOSAppAppearance
 		    Select Case currentAppearance
 		    Case NSAppearanceType.Light
 		      sStatus = "Always Light"
@@ -601,11 +585,11 @@ End
 
 #tag Events labAvailability
 	#tag Event
-		Sub Open()
-		  Dim bAvailable As Boolean = False
+		Sub Opening()
+		  Var bAvailable As Boolean = False
 		  #If TargetMacOS Then
 		    bAvailable = macOSAppAppearanceAvailable
-		  #ElseIf TargetWindows Then
+		  #Else
 		    bAvailable = IsDarkModeSupported
 		  #EndIf
 		  
@@ -621,21 +605,21 @@ End
 #tag EndEvents
 #tag Events cnvAppIcon
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
 		  #Pragma unused areas
 		  
 		  g.DrawPicture(AppIcon_64, 0, 0)
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    ShowURL("https://www.jo-tools.ch/xojo/app-appearance/")
+		    System.GotoURL("https://www.jo-tools.ch/xojo/app-appearance/")
 		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #Pragma unused X
 		  #Pragma unused Y
 		  
@@ -656,21 +640,21 @@ End
 #tag EndEvents
 #tag Events labAppName
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  Me.Text = "App Appearance"
-		  Me.TextSize = 18
+		  Me.FontSize = 18
 		  Me.Bold = True
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    ShowURL("https://www.jo-tools.ch/xojo/app-appearance/")
+		    System.GotoURL("https://www.jo-tools.ch/xojo/app-appearance/")
 		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #Pragma unused X
 		  #Pragma unused Y
 		  
@@ -691,9 +675,9 @@ End
 #tag EndEvents
 #tag Events labAppVersion
 	#tag Event
-		Sub Open()
-		  If (App.ShortVersion <> "") Then
-		    Me.Text = App.ShortVersion
+		Sub Opening()
+		  If (App.Version <> "") Then
+		    Me.Text = App.Version
 		    Return
 		  End If
 		  
@@ -701,18 +685,26 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
+#tag Events labThanks
+	#tag Event
+		Sub Opening()
+		  #If TargetLinux Then
+		    Me.FontSize = 12
+		  #EndIf
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events cnvPayPal
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
 		  #Pragma unused areas
 		  
-		  g.ForeColor = &cFFFFFF
-		  #If (XojoVersion >= 2018.03) Then
-		    If IsDarkMode Then g.ForeColor = &cD0D0D0
-		  #EndIf
-		  g.FillRect(0, 0, g.Width, g.Height)
-		  g.ForeColor = &c909090
-		  g.DrawRect(0, 0, g.Width, g.Height)
+		  g.DrawingColor = &cFFFFFF
+		  If Color.IsDarkMode Then g.DrawingColor = &cD0D0D0
+		  g.FillRectangle(0, 0, g.Width, g.Height)
+		  g.DrawingColor = &c909090
+		  g.DrawRectangle(0, 0, g.Width, g.Height)
 		  g.DrawPicture(PayPal, 3, 2, 100, 26, 0, 0, PayPal.Width, PayPal.Height)
 		End Sub
 	#tag EndEvent
@@ -728,14 +720,14 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    ShowURL("https://paypal.me/jotools")
+		    System.GotoURL("https://paypal.me/jotools")
 		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #Pragma unused X
 		  #Pragma unused Y
 		  
@@ -756,7 +748,7 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #Pragma unused X
 		  #Pragma unused Y
 		  
@@ -764,9 +756,9 @@ End
 		End Function
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    ShowURL("mailto:xojo@jo-tools.ch")
+		    System.GotoURL("mailto:xojo@jo-tools.ch")
 		  End If
 		End Sub
 	#tag EndEvent
@@ -780,63 +772,67 @@ End
 #tag EndEvents
 #tag Events btnAppearanceLight
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  macOSAppAppearance = NSAppearanceType.Light
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		  timAppearanceRefresh.RunMode = Timer.RunModes.Single
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events btnAppearanceDark
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  macOSAppAppearance = NSAppearanceType.Dark
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		  timAppearanceRefresh.RunMode = Timer.RunModes.Single
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events btnAppearanceDefault
 	#tag Event
-		Sub Action()
+		Sub Pressed()
 		  macOSAppAppearance = NSAppearanceType.Default
-		  timAppearanceRefresh.Mode = Timer.ModeSingle
+		  timAppearanceRefresh.RunMode = Timer.RunModes.Single
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="MinWidth"
+		Name="MinimumWidth"
 		Visible=true
 		Group="Size"
 		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MinHeight"
+		Name="MinimumHeight"
 		Visible=true
 		Group="Size"
 		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="MaximumWidth"
 		Visible=true
 		Group="Size"
 		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="MaximumHeight"
 		Visible=true
 		Group="Size"
 		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Frame"
+		Name="Type"
 		Visible=true
 		Group="Frame"
 		InitialValue="0"
-		Type="Integer"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -848,48 +844,47 @@ End
 			"6 - Rounded Window"
 			"7 - Global Floating Window"
 			"8 - Sheet Window"
-			"9 - Metal Window"
-			"11 - Modeless Dialog"
+			"9 - Modeless Dialog"
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="CloseButton"
+		Name="HasCloseButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaximizeButton"
+		Name="HasMaximizeButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MinimizeButton"
+		Name="HasMinimizeButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="FullScreenButton"
+		Name="HasFullScreenButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Placement"
+		Name="DefaultLocation"
 		Visible=true
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -900,46 +895,44 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="LiveResize"
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
+		Name="HasBackgroundColor"
 		Visible=true
 		Group="Background"
 		InitialValue="False"
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="BackColor"
+		Name="BackgroundColor"
 		Visible=true
 		Group="Background"
 		InitialValue="&hFFFFFF"
-		Type="Color"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Name"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Interfaces"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Super"
 		Visible=true
 		Group="ID"
+		InitialValue=""
 		Type="String"
-		EditorType="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Width"
@@ -947,6 +940,7 @@ End
 		Group="Size"
 		InitialValue="600"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Height"
@@ -954,6 +948,7 @@ End
 		Group="Size"
 		InitialValue="400"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Title"
@@ -961,6 +956,7 @@ End
 		Group="Frame"
 		InitialValue="Untitled"
 		Type="String"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Resizeable"
@@ -968,19 +964,23 @@ End
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Composite"
+		Visible=false
 		Group="OS X (Carbon)"
 		InitialValue="False"
 		Type="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MacProcID"
+		Visible=false
 		Group="OS X (Carbon)"
 		InitialValue="0"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="ImplicitInstance"
@@ -988,7 +988,7 @@ End
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Visible"
@@ -996,28 +996,31 @@ End
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="FullScreen"
+		Visible=false
 		Group="Behavior"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
 		Visible=true
 		Group="Background"
+		InitialValue=""
 		Type="Picture"
-		EditorType="Picture"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MenuBar"
 		Visible=true
 		Group="Menus"
-		Type="MenuBar"
-		EditorType="MenuBar"
+		InitialValue=""
+		Type="DesktopMenuBar"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MenuBarVisible"
@@ -1025,6 +1028,6 @@ End
 		Group="Deprecated"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior
