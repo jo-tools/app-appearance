@@ -14,7 +14,7 @@
 			Begin BuildStepList Windows
 				Begin BuildProjectStep Build
 				End
-				Begin IDEScriptBuildStep AzureTrustedSigning , AppliesTo = 0, Architecture = 0, Target = 0
+				Begin IDEScriptBuildStep AzureTrustedSigning , AppliesTo = 2, Architecture = 0, Target = 0
 					'**************************************************
 					' CodeSign | Azure Trusted Signing | Docker
 					'**************************************************
@@ -159,6 +159,118 @@
 					If (iCHECK_DOCKERIMAGE_RESULT <> 0) Then
 					Print "AzureTrustedSigning: Docker Image '" + sDOCKER_IMAGE + "' not available"
 					End If
+					End If
+					End If
+					
+				End
+				Begin IDEScriptBuildStep CreateZIP , AppliesTo = 2, Architecture = 0, Target = 0
+					'**************************************************
+					'Create .zip for Windows Builds
+					'**************************************************
+					'1. Read the comments in this PostBuild Script
+					'2. Edit the values according to your needs
+					'**************************************************
+					'3. If it's working for you:
+					'   Do you like it? Does it help you? Has it saved you time and money?
+					'   You're welcome - it's free...
+					'   If you want to say thanks I appreciate a message or a small donation.
+					'   Contact: xojo@jo-tools.ch
+					'   PayPal:  https://paypal.me/jotools
+					'**************************************************
+					
+					If DebugBuild Then Return 'don't create .zip for DebugRuns
+					
+					' bSILENT=True : don't show any error messages
+					Var bSILENT As Boolean = False
+					
+					'Check Build Target
+					Select Case CurrentBuildTarget
+					Case 3 'Windows (Intel, 32Bit)
+					Case 19 'Windows (Intel, 64Bit)
+					Case 25 'Windows(ARM, 64Bit)
+					Else
+					If (Not bSILENT) Then Print "CreateZIP: Unsupported Build Target"
+					Return
+					End Select
+					
+					'Xojo Project Settings
+					Var sPROJECT_PATH As String
+					Var sBUILD_LOCATION As String = CurrentBuildLocation
+					Var sAPP_NAME As String = CurrentBuildAppName
+					Var sCHAR_FOLDER_SEPARATOR As String
+					If TargetWindows Then 'Xojo IDE is running on Windows
+					sPROJECT_PATH = DoShellCommand("echo %PROJECT_PATH%", 0).Trim
+					sCHAR_FOLDER_SEPARATOR = "\"
+					If (sAPP_NAME.Right(4) = ".exe") Then
+					sAPP_NAME = sAPP_NAME.Left(sAPP_NAME.Length - 4)
+					End If
+					ElseIf TargetMacOS Or TargetLinux Then 'Xojo IDE running on macOS or Linux
+					sPROJECT_PATH = DoShellCommand("echo $PROJECT_PATH", 0).Trim
+					If sPROJECT_PATH.Right(1) = "/" Then
+					'no trailing /
+					sPROJECT_PATH = sPROJECT_PATH.Left(sPROJECT_PATH.Length - 1)
+					End If
+					If sBUILD_LOCATION.Right(1) = "/" Then
+					'no trailing /
+					sBUILD_LOCATION = sBUILD_LOCATION.Left(sBUILD_LOCATION.Length - 1)
+					End If
+					sBUILD_LOCATION = sBUILD_LOCATION.ReplaceAll("\", "") 'don't escape Path
+					sCHAR_FOLDER_SEPARATOR = "/"
+					End If
+					
+					If (sPROJECT_PATH = "") Then
+					If (Not bSILENT) Then Print "Xojo PostBuild Script CreateZIP requires to get the Environment Variable PROJECT_PATH from the Xojo IDE." + EndOfLine + EndOfLine + "Unfortunately, it's empty.... try again after re-launching the Xojo IDE and/or rebooting your machine."
+					Return
+					End If
+					
+					'Check Stage Code for ZIP Filename
+					Var sSTAGECODE_SUFFIX As String
+					Select Case PropertyValue("App.StageCode")
+					Case "0" 'Development
+					sSTAGECODE_SUFFIX = "-dev"
+					Case "1" 'Alpha
+					sSTAGECODE_SUFFIX = "-alpha"
+					Case "2" 'Beta
+					sSTAGECODE_SUFFIX = "-beta"
+					Case "3" 'Final
+					'not used in filename
+					End Select
+					
+					'Build ZIP Filename
+					Var sZIP_FILENAME As String
+					Select Case CurrentBuildTarget
+					Case 3 'Windows (Intel, 32Bit)
+					sZIP_FILENAME = sAPP_NAME.ReplaceAll(" ", "_") + sSTAGECODE_SUFFIX + "_Windows_Intel_32Bit.zip"
+					Case 19 'Windows (Intel, 64Bit)
+					sZIP_FILENAME = sAPP_NAME.ReplaceAll(" ", "_") + sSTAGECODE_SUFFIX + "_Windows_Intel_64Bit.zip"
+					Case 25 'Windows(ARM, 64Bit)
+					sZIP_FILENAME = sAPP_NAME.ReplaceAll(" ", "_") + sSTAGECODE_SUFFIX + "_Windows_ARM_64Bit.zip"
+					Else
+					Return
+					End Select
+					
+					'Create .zip
+					Var sPATH_PARTS() As String = sBUILD_LOCATION.Split(sCHAR_FOLDER_SEPARATOR)
+					Var sAPP_FOLDERNAME As String = sPATH_PARTS(sPATH_PARTS.LastIndex)
+					sPATH_PARTS.RemoveAt(sPATH_PARTS.LastIndex)
+					Var sFOLDER_BASE As String = String.FromArray(sPATH_PARTS, sCHAR_FOLDER_SEPARATOR)
+					
+					If TargetWindows Then 'Xojo IDE is running on Windows
+					Var sPOWERSHELL_COMMAND As String = "cd """ + sFOLDER_BASE + """; Compress-Archive -Path .\* -DestinationPath ""..\" + sZIP_FILENAME + """"
+					Var iPOWERSHELL_RESULT As Integer
+					Var sPOWERSHELL_OUTPUT As String = DoShellCommand("powershell -command """ + sPOWERSHELL_COMMAND.ReplaceAll("""", "'") + """", 0, iPOWERSHELL_RESULT)
+					If (iPOWERSHELL_RESULT <> 0) Then
+					If (Not bSILENT) Then Print "CreateZIP Error" + EndOfLine + EndOfLine + _
+					sPOWERSHELL_OUTPUT.Trim + EndOfLine + _
+					"[ExitCode: " + iPOWERSHELL_RESULT.ToString + "]"
+					End If
+					ElseIf TargetMacOS Or TargetLinux Then 'Xojo IDE running on macOS or Linux
+					Var iZIP_RESULT As Integer
+					Var sZIP_OUTPUT As String = DoShellCommand("cd """ + sFOLDER_BASE + """ && zip -r ""../" + sZIP_FILENAME + """ ""./" + sAPP_FOLDERNAME + """", 0, iZIP_RESULT)
+					If (iZIP_RESULT <> 0) Then
+					If (Not bSILENT) Then Print "CreateZIP Error" + EndOfLine + EndOfLine + _
+					sZIP_OUTPUT.Trim + EndOfLine + _
+					"[ExitCode: " + iZIP_RESULT.ToString + "]"
 					End If
 					End If
 					
