@@ -34,7 +34,7 @@ Windows in DarkMode and user's app-preference: ```DarkMode Opt-in: yes```, so ap
 [Xojo](https://www.xojo.com/) is a rapid application development for Desktop, Web, Mobile & Raspberry Pi.  
 
 The Desktop application Xojo example project ```AppAppearance.xojo_project``` is using:
-- Xojo 2024r1.1
+- Xojo 2024r4.2
 - API 2
 
 *Note: You'll need to build with Xojo 2021r3 or later to get DarkMode Support on TargetWindows*
