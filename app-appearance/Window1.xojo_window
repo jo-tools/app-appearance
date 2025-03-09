@@ -110,7 +110,7 @@ Begin DesktopWindow Window1
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
-      Tooltip         =   ""
+      Tooltip         =   "#kURL_Repository"
       Top             =   20
       Transparent     =   True
       Visible         =   True
@@ -142,7 +142,7 @@ Begin DesktopWindow Window1
       Text            =   "App Appearance"
       TextAlignment   =   0
       TextColor       =   &c0072D800
-      Tooltip         =   ""
+      Tooltip         =   "#kURL_Repository"
       Top             =   20
       Transparent     =   True
       Underline       =   True
@@ -263,7 +263,7 @@ Begin DesktopWindow Window1
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
-      Tooltip         =   ""
+      Tooltip         =   "#kURL_PayPal"
       Top             =   54
       Transparent     =   True
       Visible         =   True
@@ -295,7 +295,7 @@ Begin DesktopWindow Window1
       Text            =   "Contact"
       TextAlignment   =   0
       TextColor       =   &c0072CE00
-      Tooltip         =   ""
+      Tooltip         =   "#kEmail_Contact"
       Top             =   54
       Transparent     =   True
       Underline       =   True
@@ -581,6 +581,16 @@ End
 	#tag EndMethod
 
 
+	#tag Constant, Name = kEmail_Contact, Type = String, Dynamic = False, Default = \"xojo@jo-tools.ch", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kURL_PayPal, Type = String, Dynamic = False, Default = \"https://paypal.me/jotools", Scope = Private
+	#tag EndConstant
+
+	#tag Constant, Name = kURL_Repository, Type = String, Dynamic = False, Default = \"https://github.com/jo-tools/app-appearance", Scope = Private
+	#tag EndConstant
+
+
 #tag EndWindowCode
 
 #tag Events labAvailability
@@ -614,7 +624,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    System.GotoURL("https://www.jo-tools.ch/xojo/app-appearance/")
+		    System.GotoURL(kURL_Repository)
 		  End If
 		End Sub
 	#tag EndEvent
@@ -649,7 +659,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    System.GotoURL("https://www.jo-tools.ch/xojo/app-appearance/")
+		    System.GotoURL(kURL_Repository)
 		  End If
 		End Sub
 	#tag EndEvent
@@ -722,7 +732,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    System.GotoURL("https://paypal.me/jotools")
+		    System.GotoURL(kURL_PayPal)
 		  End If
 		End Sub
 	#tag EndEvent
@@ -758,7 +768,7 @@ End
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
 		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
-		    System.GotoURL("mailto:xojo@jo-tools.ch")
+		    System.GotoURL("mailto:" + kEmail_Contact)
 		  End If
 		End Sub
 	#tag EndEvent
