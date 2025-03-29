@@ -294,34 +294,6 @@
 					'     PayPal:  https://paypal.me/jotools
 					'*********************************************************************************************
 					
-					'*********************************************************************************************
-					' Note: Xojo IDE running on Linux
-					'*********************************************************************************************
-					' Make sure that docker can be run without requiring 'sudo':
-					' More information e.g. in this article:
-					' https://medium.com/devops-technical-notes-and-manuals/how-to-run-docker-commands-without-sudo-28019814198f
-					' 1. sudo groupadd docker
-					' 2. sudo gpasswd -a $USER docker
-					' 3. (reboot)
-					'*********************************************************************************************
-					
-					
-					'*********************************************************************************************
-					' Security Warning
-					'*********************************************************************************************
-					'This Post Build Script is intended as an example to demonstrate the functionality.
-					'However, it allows to retrieve sensitive information (such as a Client Secret or certificate
-					'Password from a plaintext `.json` configuration file, which is not secure.
-					'However, the provided Post Build Script also supports retrieving credentials from a
-					'Secret Storage. It's highly recommended to use that approach.
-					'If using similar logic in a production environment, implement a secure method for managing
-					'secrets to protect sensitive information.
-					'Retrieve the secrets In the Post Build Script from a secure storage, and run the
-					'Docker Container from the script with the corresponding Environment Variables,
-					'omitting the secrets In the `.json` configuration files.
-					'*********************************************************************************************
-					
-					
 					If DebugBuild Then Return 'don't CodeSign DebugRun's
 					
 					'bSILENT=True : don't show any messages until checking configuration
