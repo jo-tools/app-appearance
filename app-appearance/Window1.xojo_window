@@ -10,6 +10,7 @@ Begin DesktopWindow Window1
    HasFullScreenButton=   False
    HasMaximizeButton=   False
    HasMinimizeButton=   True
+   HasTitleBar     =   True
    Height          =   280
    ImplicitInstance=   False
    MacProcID       =   0
@@ -182,7 +183,7 @@ Begin DesktopWindow Window1
       Visible         =   True
       Width           =   180
    End
-   Begin DesktopSeparator Separator1
+   Begin DesktopSeparator sepHeader
       Active          =   False
       AllowAutoDeactivate=   True
       AllowTabStop    =   True
@@ -805,6 +806,14 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="HasTitleBar"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MinimumWidth"
 		Visible=true
