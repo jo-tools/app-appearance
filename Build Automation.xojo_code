@@ -163,14 +163,7 @@
 					sBUILD_LOCATION = sBUILD_LOCATION.Left(sBUILD_LOCATION.Length - 1)
 					End If
 					
-					'Sanity Check: Unsupported XojoVersion when building Universal (Intel 64Bit, ARM 64Bit)
-					If ((CurrentBuildTarget = 24) And (sBUILD_LOCATION.Right(18) = "/_macOS ARM 64 bit")) _
-					Or _
-					((CurrentBuildTarget = 16) And (sBUILD_LOCATION.Right(14) = "/_macOS 64 bit")) Then
-					Return
-					End If
-					
-					Var sBUILD_APPNAME As String = CurrentBuildAppName 'Xojo 2022r1 adds .app
+					Var sBUILD_APPNAME As String = CurrentBuildAppName 'includes .app suffix since Xojo 2022r1
 					If (sBUILD_APPNAME.Right(4) = ".app") Then sBUILD_APPNAME = sBUILD_APPNAME.Left(sBUILD_APPNAME.Length-4)
 					
 					Var sBUILD_APP_VERSION As String = PropertyValue("App.Version")
